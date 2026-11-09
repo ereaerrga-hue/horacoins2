@@ -3,24 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>HoraCoins - Загрузка</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
-
+    <title>Загрузка</title>
     <style>
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
         body {
             margin: 0;
             height: 100dvh;
             background: linear-gradient(135deg, #000000, #444444);
-            color: #fff;
-            font-family: sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -28,13 +16,13 @@
             overflow: hidden;
         }
 
-        /* --- Монета (теперь сверху) --- */
+        /* Монета */
         .button-inner {
             display: block;
-            width: min(75vw, 340px);
+            width: min(60vw, 280px);
             height: auto;
             animation: upDown 3s ease-in-out infinite;
-            margin-bottom: 40px; /* Отступ от монеты до полоски загрузки */
+            margin-bottom: 40px; /* Отступ до полоски */
         }
 
         @keyframes upDown {
@@ -42,13 +30,7 @@
             50%      { transform: translateY(-20px); }
         }
 
-        /* --- Полоса загрузки (теперь снизу) --- */
-        .loader-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
+        /* Полоска загрузки */
         .loader-line {
             width: 150px;
             height: 8px;
@@ -77,27 +59,16 @@
     </style>
 </head>
 <body>
-
-<!-- Монета стоит первая в HTML, поэтому она сверху -->
-<img class="button-inner" src="https://www.pngarts.com/files/3/Silver-Coin-Free-PNG-Image.png" alt="Loading Coin">
-
-<!-- Полоска загрузки идет после монеты, поэтому она снизу -->
-<div class="loader-container">
-    <div class="loader-line"></div>
-</div>
+<img class="button-inner" src="https://www.pngarts.com/files/3/Silver-Coin-Free-PNG-Image.png" alt="Загрузка">
+<div class="loader-line"></div>
 
 <script>
-    const w = window;
-    const tg = w.Telegram && w.Telegram.WebApp;
-    if (tg) {
-        tg.ready();
-        tg.expand();
-    }
+    const tg = window.Telegram && window.Telegram.WebApp;
+    if (tg) { tg.ready(); tg.expand(); }
 
     setTimeout(() => {
         window.location.replace('HoraCliker.html');
     }, 2000);
 </script>
-
 </body>
 </html>
